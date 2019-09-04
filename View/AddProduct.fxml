@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="480.0" prefWidth="850.0" fx:controller="c482.View.AddProductController">
+    <children>
+        <Label fx:id="addProductLbl" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="50" text="Add Product">
+            <font>
+                <Font name="System Bold" size="18"/> 
+            </font>
+        </Label>
+        <GridPane gridLinesVisible="false" alignment="TOP_CENTER"  hgap="15" vgap="10" >
+            <padding>
+                <Insets top="150" left="50"/>
+            </padding>
+            <Label fx:id="productID" text="ID" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="productName" text="Name" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="productInv" text="Inv" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="productPriceCost" text="Price/Cost" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="productMax" text="Max" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="4" >
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="productMin" text="Min" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            
+            <TextField fx:id="productIDTF" GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" editable="false" />
+            <TextField fx:id="productNameTF" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" />
+            <TextField fx:id="productInvTF" GridPane.columnIndex="1" GridPane.rowIndex="2" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" />
+            <TextField fx:id="productPriceCostTF" GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" />
+            <TextField fx:id="productMaxTF" GridPane.columnIndex="1" GridPane.rowIndex="4" alignment="CENTER_LEFT" maxWidth="50" />
+            <TextField fx:id="productMinTF" GridPane.columnIndex="3" GridPane.rowIndex="4" alignment="CENTER_LEFT" maxWidth="50" />
+        </GridPane>
+        <HBox fx:id="productSearchHbox" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="10" spacing="10" >
+            <Button prefHeight="25" prefWidth="75" text="Search" onAction="#searchClicked"/>
+            <TextField fx:id="searchTF" minWidth="140"/>
+        </HBox>
+        <VBox AnchorPane.rightAnchor="20" AnchorPane.topAnchor="50" spacing="10" alignment="CENTER_RIGHT" >
+            <TableView fx:id="partsTableAddProducts" maxHeight="140">    
+                <columns>
+                    <TableColumn prefWidth="115" fx:id="partsTableID" text="Part ID" id="productsID"/>   
+                    <TableColumn prefWidth="115" fx:id="partsTableName" text="Part Name" id="productsName"/>   
+                    <TableColumn prefWidth="115" fx:id="partsTableInvLevel" text="Inventory Level" id="productsInvLevel"/>
+                    <TableColumn prefWidth="115" fx:id="partsTablePriceCost" text="Price/Cost per Unit" id="productsPriceCost"/>
+                </columns>
+            </TableView>
+            <Button fx:id="add" text="Add" prefHeight="25" prefWidth="75" onAction="#addPartToProduct" />
+            <TableView fx:id="partsTableForProducts" maxHeight="140">    
+                <columns>
+                    <TableColumn prefWidth="115" fx:id="productsTableID" text="Part ID" id="productsTableID"/>   
+                    <TableColumn prefWidth="115" fx:id="productsTableName" text="Part Name" id="productTablesName"/>   
+                    <TableColumn prefWidth="115" fx:id="productsTableInvLevel" text="Inventory Level" id="productsTableInvLevel"/>
+                    <TableColumn prefWidth="115" fx:id="productsTablePriceCost" text="Price/Cost per Unit" id="productsTablePriceCost"/>
+                </columns>
+            </TableView>
+            <Button fx:id="delete" text="Delete" prefHeight="25" prefWidth="75" onAction="#deleteFromProduct"/>
+        </VBox> 
+        <HBox AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" spacing="20" >
+            <Button fx:id="save" text="Save" prefHeight="25" prefWidth="75" onAction="#addProductSave"/>
+            <Button fx:id="cancel" text="Cancel" prefHeight="25" prefWidth="75" onAction="#addProductCancel"/>
+        </HBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.SplitPane?> 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextField?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="1000" fx:controller="c482.View.MainAppController">
+    <top>
+        <Label BorderPane.alignment="CENTER_LEFT" text="Inventory Management System">
+            <BorderPane.margin>
+                <Insets bottom="20" top="20" left="10"/>
+            </BorderPane.margin>
+            <font >
+                <Font name="System Bold" size="18" />
+            </font>
+        </Label> 
+    </top>
+    <center>
+        <SplitPane dividerPositions=".5" orientation="HORIZONTAL" BorderPane.alignment="CENTER">
+            <items>
+                <AnchorPane fx:id="partsAnchorPane" >
+                    <Label fx:id="partsLabel" text="Parts" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10">
+                        <font>
+                            <Font name="System Bold" size="16" /> 
+                        </font>
+                    </Label>
+                    <HBox fx:id="partsSearchHbox" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" spacing="10" >
+                        <Button prefHeight="25" prefWidth="75" text="Search" onAction="#searchPartClicked"/>
+                        <TextField fx:id="partSearchTF" minWidth="100"/>
+                    </HBox>
+                    <TableView fx:id="partTable" AnchorPane.topAnchor="45" AnchorPane.bottomAnchor="45" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" >
+                        <columns>
+                            <TableColumn prefWidth="115" fx:id="partsID" text="Part ID" />
+                            <TableColumn prefWidth="115" fx:id="partsName" text="Part Name" />
+                            <TableColumn prefWidth="115" fx:id="partsInvLevel" text="Inventory Level" />
+                            <TableColumn prefWidth="115" fx:id="partsPriceCost" text="Price/Cost per Unit" />
+                        </columns>
+                    </TableView>  
+                    <HBox fx:id="partsButtonsHbox" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10" spacing="10">
+                        <Button fx:id="partsAdd" prefHeight="25" prefWidth="75" text="Add" onAction="#addPartClicked" />
+                        <Button fx:id="partsModify" prefHeight="25" prefWidth="75" text="Modify" onAction="#modifyPartClicked"/>
+                        <Button fx:id="partsDelete" prefHeight="25" prefWidth="75" text="Delete" onAction="#deletePartClicked"/>
+                    </HBox>                   
+                </AnchorPane>
+                <AnchorPane fx:id="productsAnchorPane" >
+                    <Label fx:id="productsLabel" text="Products" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10">
+                        <font>
+                            <Font name="System Bold"  size="16" /> 
+                        </font>
+                    </Label>
+                    <HBox fx:id="productsSearchHbox" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10" spacing="10" >
+                        <Button prefHeight="25" prefWidth="75" text="Search" onAction="#searchProductClicked"/>
+                        <TextField fx:id="productSearchTF" minWidth="100"/>
+                    </HBox>
+                    <TableView fx:id="productTable" AnchorPane.topAnchor="45" AnchorPane.bottomAnchor="45" AnchorPane.rightAnchor="10" AnchorPane.leftAnchor="10" >
+                        <columns>
+                            <TableColumn prefWidth="115" fx:id="productsID" text="Product ID" id="productsID"/>   
+                            <TableColumn prefWidth="115" fx:id="productsName" text="Product Name" id="productsName"/>   
+                            <TableColumn prefWidth="115" fx:id="productsInvLevel" text="Inventory Level" id="productsInvLevel"/>
+                            <TableColumn prefWidth="115" fx:id="productsPriceCost" text="Price/Cost per Unit" id="productsPriceCost"/>
+                        </columns>
+                    </TableView>  
+                    <HBox fx:id="productsButtonsHbox" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10" spacing="10" >
+                        <Button fx:id="productsAdd" prefHeight="25" prefWidth="75" text="Add" onAction="#addProductClicked"/>
+                        <Button fx:id="productsModify" prefHeight="25" prefWidth="75" text="Modify" onAction="#modifyProductClicked"/>
+                        <Button fx:id="productsDelete" prefHeight="25" prefWidth="75" text="Delete" onAction="#deleteProductClicked"/>
+                    </HBox> 
+                </AnchorPane>
+            </items>
+            <BorderPane.margin>
+                <Insets right="15" left="15"/> 
+            </BorderPane.margin>
+        </SplitPane>   
+    </center>
+    <bottom>
+        <Button fx:id="mainExit" prefHeight="25" prefWidth="75" text="Exit" BorderPane.alignment="CENTER_RIGHT" onAction="#onExit">
+            <BorderPane.margin>
+                <Insets bottom="15" right="30" top="15" />
+            </BorderPane.margin>
+        </Button>
+    </bottom>
+</BorderPane>

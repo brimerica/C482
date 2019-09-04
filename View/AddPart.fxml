@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="350.0" prefWidth="400.0" fx:controller="c482.View.AddPartController">
+    <children>
+        <Label fx:id="addPartLbl" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="10" text="Add Part">
+            <font>
+                <Font name="System Bold" size="18"/> 
+            </font>
+        </Label>
+        <GridPane gridLinesVisible="false" alignment="TOP_CENTER"  hgap="15" vgap="10" >
+            <padding>
+                <Insets top="50" right="50" left="50"/>
+            </padding>
+            <Label fx:id="partID" text="ID" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="partName" text="Name" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="partInv" text="Inv" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="partPriceCost" text="Price/Cost" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="partMax" text="Max" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="4" >
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="partSource" minWidth="120" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            <Label fx:id="partMin" text="Min" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                <font>
+                    <Font size="14.0" name="System Bold"/>
+                </font>
+            </Label>
+            
+            <TextField fx:id="partIDTF" GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" editable="false" />
+            <TextField fx:id="partNameTF" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" />
+            <TextField fx:id="partInvTF" GridPane.columnIndex="1" GridPane.rowIndex="2" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" />
+            <TextField fx:id="partPriceCostTF" GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="CENTER_LEFT" GridPane.columnSpan="2" maxWidth="120" />
+            <TextField fx:id="partMaxTF" GridPane.columnIndex="1" GridPane.rowIndex="4" alignment="CENTER_LEFT" maxWidth="50" />
+            <TextField fx:id="partMinTF" GridPane.columnIndex="3" GridPane.rowIndex="4" alignment="CENTER_LEFT" maxWidth="50" />
+            <TextField fx:id="partSourceTF" GridPane.columnIndex="1" GridPane.rowIndex="5" alignment="CENTER_LEFT" maxWidth="90" GridPane.columnSpan="2"/>
+        </GridPane>
+        <HBox AnchorPane.topAnchor="15" AnchorPane.rightAnchor="20" spacing="30">
+            <fx:define>
+                <ToggleGroup fx:id="addPartToggle"/>
+            </fx:define>
+            <RadioButton fx:id="partInHouse" text="In-House" toggleGroup="$addPartToggle" />
+            <RadioButton fx:id="partOutsourced" text="Outsourced" toggleGroup="$addPartToggle" />
+        </HBox>
+        <HBox AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" spacing="20" >
+            <Button fx:id="save" text="Save" prefHeight="25" prefWidth="75" onAction="#addPartSave"/>
+            <Button fx:id="cancel" text="Cancel" prefHeight="25" prefWidth="75" onAction="#addPartCancel"/>
+        </HBox>
+    </children>
+</AnchorPane>
